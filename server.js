@@ -10,10 +10,17 @@ const bookingRoutes = require("./routes/bookingroutes");
 const connectionRoutes = require("./routes/connectionRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://playconnect-xi.vercel.app", // frontend URL
+    credentials: true, // allow cookies if needed
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // Serve uploaded images
 
@@ -25,18 +32,11 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/connections", connectionRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api", contactRoutes);
-const cors = require("cors");
+
 // DB Connection
 connectedDB();
-const PORT = process.env.PORT || 5000;
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
-const cors = require("cors");
-app.use(
-  cors({
-    origin: "https://playconnect-xi.vercel.app", // replace with your frontend URL
-    credentials: true,
-  })
-);
