@@ -45,8 +45,8 @@ exports.createCheckoutSession = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:5173/success?bookingId=${booking._id}`,
-      cancel_url: "http://localhost:5173/cancel",
+      success_url: `http://https://playconnect-backend.vercel.app/5173/success?bookingId=${booking._id}`,
+      cancel_url: "http://https://playconnect-backend.vercel.app/5173/cancel",
     });
 
     res.json({ id: session.id, url: session.url, bookingId: booking._id });

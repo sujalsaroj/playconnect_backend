@@ -84,7 +84,7 @@ exports.login = async (req, res) => {
         role: user.role,
         // ✅ Add full URL for profilePic
         profilePic: user.profilePic
-          ? `http://localhost:5000${user.profilePic}`
+          ? `http://https://playconnect-backend.vercel.app/${user.profilePic}`
           : null,
       },
     });
