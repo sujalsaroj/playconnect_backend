@@ -25,7 +25,7 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/connections", connectionRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api", contactRoutes);
-
+const cors = require("cors");
 // DB Connection
 connectedDB();
 const PORT = process.env.PORT || 5000;
