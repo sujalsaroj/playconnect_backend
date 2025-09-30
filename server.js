@@ -33,3 +33,10 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://playconnect-xi.vercel.app", // replace with your frontend URL
+    credentials: true,
+  })
+);
